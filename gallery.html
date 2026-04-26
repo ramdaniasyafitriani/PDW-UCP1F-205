@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Tech Community</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <h2 class="logo">Tech Community</h2>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="form.html">Form</a>
+            <a href="gallery.html">Multimedia</a>
+        </div>
+    </nav>
+
+    <section class="container">
+        <h2>Tech Multimedia</h2>
+        
+        <div class="media-box">
+            <h3>Our Workspace</h3>
+            <img id="mainImg" src="https://picsum.photos/400/250" alt="Tech" class="rounded-img">
+            <br>
+            <button onclick="changeImage()" class="btn">Ganti Gambar</button>
+        </div>
+
+        <div class="media-box center-text">
+    <h3>Featured Video (Local)</h3>
+    <video id="myVideo" controls class="video-player">
+        <source src="video.mp4" type="video/mp4">
+        Browser kamu tidak mendukung tag video.
+    </video>
+    <div class="video-caption">
+        <p class="video-caption-text">Video: Animasi Tech Community</p>
+    </div>
+</div>
+        
+       <div class="media-box">
+    <h3>Now Playing: Shape of My Heart</h3>
+    
+    <audio id="myAudio">
+        <source src="shape of my heart.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <div class="audio-controls">
+        <button type="button" onclick="playAudio()" class="btn btn-play">Play</button>
+        <button type="button" onclick="pauseAudio()" class="btn btn-pause">Pause</button>
+        <button type="button" onclick="stopAudio()" class="btn btn-stop">Stop</button>
+    </div>
+    
+    <p id="audioInfo" class="audio-info">
+        Klik Play untuk mendengarkan.
+    </p>
+</div>
+    </section>
+
+    <script>
+        function changeImage() {
+            document.getElementById('mainImg').src = "https://picsum.photos/400/250?random=" + Math.random();
+        }
+
+        const audio = document.getElementById('myAudio');
+    const infoText = document.getElementById('audioInfo');
+
+    function playAudio() { 
+        audio.play(); 
+        infoText.innerText = "Sedang memutar: Shape of My Heart 🎵";
+        // Alert sesuai instruksi studi kasus
+        alert("Musik 'Shape of My Heart' dimulai!");
+    }
+
+    function pauseAudio() { 
+        audio.pause(); 
+        infoText.innerText = "Musik dijeda.";
+    }
+
+    function stopAudio() {
+        audio.pause();
+        audio.currentTime = 0; // Reset durasi ke awal
+        infoText.innerText = "Musik dihentikan.";
+    }
+    </script>
+</body>
+</html>

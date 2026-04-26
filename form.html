@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us - Tech Community</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <h2 class="logo">Tech Community</h2>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="form.html">Form</a>
+            <a href="gallery.html">Multimedia</a>
+        </div>
+    </nav>
+
+    <section class="container">
+        <h2>Pendaftaran Anggota Baru</h2>
+        <form id="memberForm">
+            <div class="form-group">
+                <label for="nama">Nama Lengkap:</label><br>
+                <input type="text" id="nama" name="nama" placeholder="masukkan nama lengkap" title="Nama lengkap untuk pendaftaran" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" placeholder="masukkan email Anda" title="Alamat email untuk konfirmasi" required>
+            </div>
+            <div class="form-group">
+                <label for="minat">Bidang Minat:</label><br>
+                <select id="minat">
+                    <option value="Web Development">Web Development</option>
+                    <option value="Cyber Security">Cyber Security</option>
+                    <option value="Data Science">Data Science</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Daftar Sekarang</button>
+        </form>
+
+        <div id="result" class="result-box">
+            <h4>Konfirmasi Data:</h4>
+            <p id="displayData"></p>
+        </div>
+    </section>
+
+    <script>
+        const members = []; // Array penyimpanan sementara
+
+        document.getElementById('memberForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const member = {
+                nama: document.getElementById('nama').value,
+                email: document.getElementById('email').value,
+                minat: document.getElementById('minat').value
+            };
+
+            members.push(member);
+            alert("Data berhasil disimpan sementara!");
+
+            // Menampilkan hasil input di bawah form
+            const resultDiv = document.getElementById('result');
+            const displayData = document.getElementById('displayData');
+            resultDiv.style.display = 'block';
+            displayData.innerHTML = `Nama: ${member.nama} <br> Email: ${member.email} <br> Bidang: ${member.minat}`;
+            
+            this.reset(); // Reset form
+            console.log("Daftar Anggota saat ini:", members);
+        });
+    </script>
+</body>
+</html>
